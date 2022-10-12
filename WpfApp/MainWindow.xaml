@@ -1,0 +1,117 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        xmlns:zz="clr-namespace:ClassLibrary;assembly=ClassLibrary"
+        xmlns:conv="clr-namespace:Converters"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1200"
+        Closed="Window_Closed">
+    <Window.Resources>
+        <zz:V4MainCollection x:Key="key_v4mc"/>
+        <conv:V4dogConverter x:Key="key_v4dog_converter"/>
+        <conv:DataItemConverter_1 x:Key="key_dataitem_converter_1"/>
+        <conv:DataItemConverter_2 x:Key="key_dataitem_converter_2"/>
+        <conv:MaxAbsConverter x:Key="key_max_abs_converter"/>
+        <CollectionViewSource Source="{Binding}"
+                              x:Key="key_view_DataCollection" Filter="FilterByV4DataCollection"/>
+        <CollectionViewSource Source="{Binding}"
+                              x:Key="key_view_DataOnGrid" Filter="FilterByV4DataOnFrid"/>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open"
+                        Executed="OpenCommandHandler"/>
+        <CommandBinding Command="ApplicationCommands.Save"
+                        Executed="SaveCommandHandler"
+                        CanExecute="CanSaveCommandHandler"/>
+        <CommandBinding Command="ApplicationCommands.Delete"
+                        Executed="RemoveCommandHandler"
+                        CanExecute="CanRemoveCommandHandler"/>
+        <CommandBinding Command="{x:Static local:MainWindow.AddCustomV4DataCollectionCommand}"
+                        Executed="AddCustomCommandHandler"
+                        CanExecute="CanAddCustomCommandHandler"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Height="22" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" >
+            <MenuItem Header="File">
+                <MenuItem Header="New" Click="New_Click"/>
+                <MenuItem Header="Open" Click="Open_Click"/>
+                <MenuItem Header="Save" Click="Save_Click"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Add Defaults" Click="Add_Defaults_Click"/>
+                <MenuItem Header="Add Default V4DataCollection" Click="Add_Default_V4DataCollection_Click"/>
+                <MenuItem Header="Add Default V4DataOnGrid" Click="Add_Default_V4DataOnGrid_Click"/>
+                <MenuItem Header="Add Element from File" Click="Add_Element_from_File_Click"/>
+                <MenuItem Header="Remove" Click="Remove_Click"/>
+                <MenuItem Header="Add Custom V4DataCollection" Command="{x:Static local:MainWindow.AddCustomV4DataCollectionCommand}"/>
+            </MenuItem>
+        </Menu>
+
+        <TextBlock Margin="30" VerticalAlignment="Top" HorizontalAlignment="Stretch" FontSize="15" Grid.Column="0" Grid.Row="0" Text="Main Collection"/>
+        <TextBlock Margin="30" VerticalAlignment="Top" HorizontalAlignment="Stretch" FontSize="15" Grid.Column="1" Grid.Row="0" Text="DataOnGrid"/>
+        <TextBlock Margin="30" VerticalAlignment="Top" HorizontalAlignment="Stretch" FontSize="15" Grid.Column="2" Grid.Row="0" Text="DataCollection"/>
+        <TextBlock Margin="30" VerticalAlignment="Top" HorizontalAlignment="Stretch" FontSize="15" Grid.Column="3" Grid.Row="0" Text="Add Custom V4DataCollection"/>
+
+
+        <ListBox Name="listBox_Main" Grid.Column="0" Grid.Row="0" Margin="10,60,10,10" 
+                 ItemsSource="{Binding}"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                   Text="{Binding Path=max_complex, Converter={StaticResource key_max_abs_converter}}"/>
+
+        <ListBox Name="listBox_DataOnGrid" Grid.Column="1" Grid.Row="0" Margin="10,60,10,10"  
+                 ItemsSource="{Binding Source={StaticResource key_view_DataOnGrid}}"
+                 IsSynchronizedWithCurrentItem="True"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" Margin="10"
+                   Text="{Binding Source={StaticResource key_view_DataOnGrid}, Path=CurrentItem, Converter={StaticResource key_v4dog_converter}}"/>
+
+        <ListBox Name="listBox_DataCollection" Grid.Column="2" Grid.Row="0" Margin="10,60,10,10" 
+                 ItemsSource="{Binding Source={StaticResource key_view_DataCollection}}"
+                 IsSynchronizedWithCurrentItem="True"/>
+        <ListBox Name="listBox_details" Grid.Column="2" Grid.Row="1" Margin="10"
+                 ItemsSource="{Binding Source={StaticResource key_view_DataCollection}, Path=CurrentItem}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Converter={StaticResource key_dataitem_converter_1}}"/>
+                        <TextBlock Text="{Binding Converter={StaticResource key_dataitem_converter_2}}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid Name="grid_AddCustom" Grid.Column="3" Grid.Row="0" Margin="10,60,10,10">
+            <StackPanel Name="stackPanel_AddCustom" Orientation="Vertical">
+                <TextBlock Text="Enter ID:" FontSize="13"/>
+                <TextBox Text="{Binding Info, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Number of elements:" FontSize="13"/>
+                <TextBox Text="{Binding NumOfElements, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="minValue:" FontSize="13"/>
+                <TextBox Text="{Binding MinValue, ValidatesOnDataErrors=True}"/>
+                <TextBlock Text="maxValue:" FontSize="13"/>
+                <TextBox Text="{Binding MaxValue, ValidatesOnDataErrors=True}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="3" Grid.Row="1" Margin="10,60,10,10">
+            <StackPanel>
+                <Button Content="Add Custom" Command="{x:Static local:MainWindow.AddCustomV4DataCollectionCommand}"/>
+                <Button Content="Open" Command="ApplicationCommands.Open"/>
+                <Button Content="Save" Command="ApplicationCommands.Save"/>
+                <Button Content="Remove" Command="ApplicationCommands.Delete"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

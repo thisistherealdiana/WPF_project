@@ -1,0 +1,28 @@
+C:\Users\Lenovo\Desktop\lab4\ClassLibrary\bin\Debug\netstandard2.0\ClassLibrary.deps.json
+C:\Users\Lenovo\Desktop\lab4\ClassLibrary\bin\Debug\netstandard2.0\ClassLibrary.dll
+C:\Users\Lenovo\Desktop\lab4\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.csprojAssemblyReference.cache
+C:\Users\Lenovo\Desktop\lab4\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\lab4\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\lab4\ClassLibrary\bin\Debug\netstandard2.0\ClassLibrary.pdb
+C:\Users\Lenovo\Desktop\lab4\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\lab4\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.dll
+C:\Users\Lenovo\Desktop\lab4\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.pdb
+C:\Users\Lenovo\Desktop\lab5\ClassLibrary\bin\Debug\netstandard2.0\ClassLibrary.deps.json
+C:\Users\Lenovo\Desktop\lab5\ClassLibrary\bin\Debug\netstandard2.0\ClassLibrary.dll
+C:\Users\Lenovo\Desktop\lab5\ClassLibrary\bin\Debug\netstandard2.0\ClassLibrary.pdb
+C:\Users\Lenovo\Desktop\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.csprojAssemblyReference.cache
+C:\Users\Lenovo\Desktop\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.dll
+C:\Users\Lenovo\Desktop\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.pdb
+C:\Users\archi\OneDrive\Рабочий стол\lab5\ClassLibrary\bin\Debug\netstandard2.0\ClassLibrary.deps.json
+C:\Users\archi\OneDrive\Рабочий стол\lab5\ClassLibrary\bin\Debug\netstandard2.0\ClassLibrary.dll
+C:\Users\archi\OneDrive\Рабочий стол\lab5\ClassLibrary\bin\Debug\netstandard2.0\ClassLibrary.pdb
+C:\Users\archi\OneDrive\Рабочий стол\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\archi\OneDrive\Рабочий стол\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\archi\OneDrive\Рабочий стол\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.AssemblyInfoInputs.cache
+C:\Users\archi\OneDrive\Рабочий стол\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.AssemblyInfo.cs
+C:\Users\archi\OneDrive\Рабочий стол\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\archi\OneDrive\Рабочий стол\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.dll
+C:\Users\archi\OneDrive\Рабочий стол\lab5\ClassLibrary\obj\Debug\netstandard2.0\ClassLibrary.pdb
